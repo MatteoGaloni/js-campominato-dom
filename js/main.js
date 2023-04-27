@@ -34,3 +34,14 @@ btn.addEventListener("click", function () {
   }
   oneClick = true;
 });
+
+let randomNum = getRandom();
+console.log(randomNum);
+
+function getRandom() {
+  let risultato;
+  for (let c = 0; c < 16; c++) {
+    risultato = Math.floor(Math.random() * 100 + 1);
+  }
+  return risultato;
+}
