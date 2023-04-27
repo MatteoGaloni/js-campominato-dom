@@ -47,3 +47,7 @@ h1 {
 .selected {
     background-color: rgb(20, 167, 220);
 }
+
+.bomb {
+    background-color: red;
+}

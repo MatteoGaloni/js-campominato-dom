@@ -9,12 +9,13 @@ let btn = document.getElementById("btn");
 let oneClick = false;
 console.log(oneClick);
 let text;
+let randomNum;
 
 btn.addEventListener("click", function () {
   if (oneClick == false) {
     // chiamo la funzione getRandom per generare 16 num
-    let randomNum = getRandom();
-    console.log(randomNum);
+    randomNum = getRandom();
+    console.log("i numeri random sono ", randomNum);
     // **********
     function getRandom() {
       let risultato = [];
@@ -39,11 +40,14 @@ btn.addEventListener("click", function () {
       box.style.height = `calc(100% / ${radiceQ})`;
       wrapper.appendChild(box);
       box.textContent = c;
-
+      // aggiungo event per la selezione box da parte del player
       box.addEventListener("click", function () {
-        this.classList.toggle("selected");
         text = this.textContent;
         console.log(text);
+        if (randomNum.includes(text)) {
+          this.classList.add("bomb");
+        }
+        this.classList.toggle("selected");
       });
     }
     mainElement.appendChild(wrapper);
