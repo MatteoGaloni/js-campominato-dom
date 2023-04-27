@@ -13,11 +13,15 @@ btn.addEventListener("click", function () {
   if (oneClick == false) {
     let wrapper = document.createElement("div");
     wrapper.classList.add("wrapper");
-    for (let c = 1; c <= 100; c++) {
+    let numBox = document.querySelector("select").value;
+    console.log(numBox);
+    let radiceQ = Math.sqrt(numBox);
+
+    for (let c = 1; c <= numBox; c++) {
       let box = document.createElement("div");
       box.classList.add("box");
-      box.style.width = "calc(100% / 10)";
-      box.style.height = "calc(100% / 10)";
+      box.style.width = `calc(100% / ${radiceQ})`;
+      box.style.height = `calc(100% / ${radiceQ})`;
       wrapper.appendChild(box);
       box.textContent = c;
 
