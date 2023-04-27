@@ -42,8 +42,9 @@ btn.addEventListener("click", function () {
       box.textContent = c;
       // aggiungo event per la selezione box da parte del player
       box.addEventListener("click", function () {
-        text = this.textContent;
-        console.log(text);
+        text = parseInt(this.textContent);
+        // console.log(text);
+        // console.log(randomNum.includes(text));
         if (randomNum.includes(text)) {
           this.classList.add("bomb");
         }
