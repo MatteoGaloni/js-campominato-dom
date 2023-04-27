@@ -8,15 +8,30 @@ let mainElement = document.querySelector("main");
 let btn = document.getElementById("btn");
 let oneClick = false;
 console.log(oneClick);
+let text;
 
 btn.addEventListener("click", function () {
   if (oneClick == false) {
+    // chiamo la funzione getRandom per generare 16 num
+    let randomNum = getRandom();
+    console.log(randomNum);
+    // **********
+    function getRandom() {
+      let risultato = [];
+      for (let c = 0; c < 16; c++) {
+        numero = Math.floor(Math.random() * 100 + 1);
+        risultato.push(numero);
+      }
+      return risultato;
+    }
+
+    //   ****creo wrapper e box***
     let wrapper = document.createElement("div");
     wrapper.classList.add("wrapper");
     let numBox = document.querySelector("select").value;
-    console.log(numBox);
+    // console.log(numBox);
     let radiceQ = Math.sqrt(numBox);
-
+    // apro ciclo per generare n box
     for (let c = 1; c <= numBox; c++) {
       let box = document.createElement("div");
       box.classList.add("box");
@@ -27,21 +42,11 @@ btn.addEventListener("click", function () {
 
       box.addEventListener("click", function () {
         this.classList.toggle("selected");
-        console.log(box);
+        text = this.textContent;
+        console.log(text);
       });
     }
     mainElement.appendChild(wrapper);
   }
   oneClick = true;
 });
-
-let randomNum = getRandom();
-console.log(randomNum);
-
-function getRandom() {
-  let risultato;
-  for (let c = 0; c < 16; c++) {
-    risultato = Math.floor(Math.random() * 100 + 1);
-  }
-  return risultato;
-}
